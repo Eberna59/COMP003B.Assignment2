@@ -1,5 +1,10 @@
 namespace COMP003B.Assignment2
 {
+    /* Evan berna
+     * COMP003B
+     * Jonathan Cruz
+     * The purpose of this assignment is to build a modular and structured ASP.NET Core MVC Web application
+     */
     public class Program
     {
         public static void Main(string[] args)
@@ -20,6 +25,13 @@ namespace COMP003B.Assignment2
             }
 
             app.UseHttpsRedirection();
+
+            app.UseStaticFiles();
+
+            app.UseMiddleware<COMP003B.Assignment2.Middleware.RequestTrackerMiddleware>();
+
+            app.UseWelcomePage("/Welcome");
+
             app.UseRouting();
 
             app.UseAuthorization();
